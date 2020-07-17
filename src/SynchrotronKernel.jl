@@ -36,6 +36,8 @@ module SynchrotronKernel
 
     Computes the first synchrotron function at a given frequency ratio.
 
+    ``F(x) = x \\int_x^\\infty K_{\\frac{5}{3}}(t) dt``
+
     """
     @inline function synchrotron_kernel(x::Real)
 
