@@ -169,7 +169,7 @@ uuid = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
 
 [[SynchrotronKernel]]
 deps = ["Documenter", "DocumenterTools", "Test"]
-git-tree-sha1 = "f71638394d3c11d9db5bfce4e4fa1a2e44c418ab"
+git-tree-sha1 = "11cef4b63715667925bc7c5079aa42a3af6ba6da"
 repo-rev = "master"
 repo-url = ".."
 uuid = "7c311715-997f-43ba-a0ee-db1ccfe8d7f2"

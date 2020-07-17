@@ -7,9 +7,10 @@ makedocs(
     modules = [SynchrotronKernel]
 )
 
+
 # Documenter can also automatically deploy documentation to gh-pages.
 # See "Hosting Documentation" and deploydocs() in the Documenter manual
 # for more information.
 deploydocs(
-    repo = "github.com/LudwigBoess/SynchrotronKernel.jl.git",
+    repo = "github.com/LudwigBoess/SynchrotronKernel.jl.git"
 )
