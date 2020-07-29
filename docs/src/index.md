@@ -26,7 +26,7 @@ This package computes the first synchrotron function of a frequency ratio ``x = 
 
 ``F(x) = x \int_x^\infty K_{\frac{5}{3}}(t) dt``.
 
-```@example
+```@example 1
 
 using SynchrotronKernel # hide
 using PyPlot # hide
