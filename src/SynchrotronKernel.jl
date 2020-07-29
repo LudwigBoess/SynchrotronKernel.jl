@@ -10,7 +10,7 @@ module SynchrotronKernel
 
     export synchrotron_kernel
 
-    @inline function cheb_eval(coeff::typeof([1.0]), order::Integer, a::Real, b::Real, x::Real)
+    @inline @fastmath function cheb_eval(coeff::Vector{<:Real}, order::Integer, a::Real, b::Real, x::Real)
 
         d = 0.0
         dd = 0.0
@@ -34,7 +34,7 @@ module SynchrotronKernel
     """
         synchrotron_kernel(x::Real)
 
-    Computes the first synchrotron function at a given frequency ratio.
+    Computes the first synchrotron function at a given frequency ratio ``x = \\frac{\\nu}{\\nu_0}``.
 
     ``F(x) = x \\int_x^\\infty K_{\\frac{5}{3}}(t) dt``
 
