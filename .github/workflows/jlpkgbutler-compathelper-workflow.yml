@@ -1,10 +1,14 @@
-name: CompatHelper
+name: Run CompatHelper
+
 on:
   schedule:
-    - cron: '00 00 * * *'
-  workflow_dispatch:
+    - cron: '00 * * * *'
+  issues:
+    types: [opened, reopened]
+
 jobs:
-  CompatHelper:
+  compathelper:
+    name: "Run CompatHelper.jl"
     runs-on: ubuntu-latest
     steps:
       - name: Pkg.add("CompatHelper")
@@ -12,5 +16,4 @@ jobs:
       - name: CompatHelper.main()
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          COMPATHELPER_PRIV: ${{ secrets.DOCUMENTER_KEY }}  # optional
         run: julia -e 'using CompatHelper; CompatHelper.main()'
