@@ -4,10 +4,15 @@
 
 # SynchrotronKernel.jl
 
-This package computes the first synchrotron function of a frequency ratio ``F(x) = x \int_x^\infty K_{\frac{5}{3}}(t) dt``
+This package computes the synchrotron kernel for a frequency ratio `x = ν/ν0` and its polarisation components.
 
-## Usage
 
 ```julia
+using SynchrotronKernel
+
+# kernel value
 F = synchrotron_kernel(x)
+
+# polarisations
+F_ort, F_par = synchrotron_polarisation(x)
 ```
