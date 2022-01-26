@@ -104,8 +104,8 @@ Computes the first synchrotron function at a given frequency ratio ``x = \\frac{
 
     elseif x <= 4.0
 
-        px = x^(1/3)
-        px11 = px^11
+        px = ∛(x)
+        px11 = px*px*px*px*px*px*px*px*px*px*px
         t = x^2 / 8.0 - 1.0
         result_c1 = cheb_eval( synchrotron1_data, 13, t )
 
