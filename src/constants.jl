@@ -22,9 +22,7 @@ global const synchrotron1_data = [  30.364682982501076273,
                                     0.15167e-15
                                   ]
 
-global const synchrotron1_cs_order = 12
-global const synchrotron1_cs_a = -1.0
-global const synchrotron1_cs_b = 1.0
+global const synchrotron1_cs_order = 13
 
 global const synchrotron1a_data = [ 2.1329305161355000985,
                                     0.741352864954200240e-01,
@@ -51,9 +49,7 @@ global const synchrotron1a_data = [ 2.1329305161355000985,
                                     0.7e-18
                                 ]
 
-global const synchrotron1a_cs_order = 22
-global const synchrotron1a_cs_a = -1.0
-global const synchrotron1a_cs_b = 1.0
+global const synchrotron1a_cs_order = 23
 
 global const synchrotron2_data = [  0.4490721623532660844,
                                     0.898353677994187218e-01,
@@ -66,10 +62,8 @@ global const synchrotron2_data = [  0.4490721623532660844,
                                     0.1079125e-11,
                                     0.10022e-13,
                                     0.77e-16,
-                                    0.5e-18,
+                                    0.5e-18
                                 ]
 
 
-global const synchrotron2_cs_order = 11
-global const synchrotron2_cs_a = -1.0
-global const synchrotron2_cs_b = 1.0
+global const synchrotron2_cs_order = 12

@@ -10,22 +10,20 @@ module SynchrotronKernel
 
     export synchrotron_kernel
 
-    @inline @fastmath function cheb_eval(coeff::Vector{<:Real}, order::Integer, a::Real, b::Real, x::Real)
+    @inline @fastmath function cheb_eval(coeff::Vector{<:Real}, order::Integer, x::Real)
 
         d = 0.0
         dd = 0.0
 
-        y = (2x - a - b) / (b - a)
-        y2 = 2y
+        x2 = 2x
 
-        @inbounds for j = (order+1):-1:2
+        @inbounds for j = order:-1:2
             temp = d
-            d = y2 * d - dd + coeff[j]
+            d = x2 * d - dd + coeff[j]
             dd = temp
         end
 
-        temp = d
-        d = y * d - dd + 0.5 * coeff[1]
+        d = x * d - dd + 0.5 * coeff[1]
 
         return d
     end
@@ -54,14 +52,10 @@ module SynchrotronKernel
             t = x^2 / 8.0 - 1.0
             result_c1 = cheb_eval( synchrotron1_data,
                                 synchrotron1_cs_order,
-                                synchrotron1_cs_a,
-                                synchrotron1_cs_b,
                                 t )
 
             result_c2 = cheb_eval( synchrotron2_data,
                                 synchrotron2_cs_order,
-                                synchrotron2_cs_a,
-                                synchrotron2_cs_b,
                                 t )
 
             return px * result_c1 - px11 * result_c2 - synch_c0 * x
@@ -72,8 +66,6 @@ module SynchrotronKernel
 
             result_c1 = cheb_eval( synchrotron1a_data,
                                 synchrotron1a_cs_order,
-                                synchrotron1a_cs_a,
-                                synchrotron1a_cs_b,
                                 t )
 
             return sqrt(x) * result_c1 * exp(c01 - x)
