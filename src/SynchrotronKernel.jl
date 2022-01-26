@@ -6,7 +6,6 @@
 
 module SynchrotronKernel
 
-    include("constants.jl")
     include("F.jl")
     include("G.jl")
 
@@ -30,7 +29,7 @@ module SynchrotronKernel
         synchrotron_polarisation(x::Real)
 
     Computes the second synchrotron function at a given frequency ratio ``x = \\frac{\\nu}{\\nu_0}``.
-    Returns a touple of `(sk_ort, sk_par)`.
+    Returns a tuple of `(sk_ort, sk_par)`.
     """
     function synchrotron_polarisation(x::Real)
         
