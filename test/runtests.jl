@@ -11,10 +11,14 @@ using SynchrotronKernel, Test
         @test SynchrotronKernel.F( 50.0) ≈ 1.734785203976593e-21
         @test SynchrotronKernel.F(100.0) ≈ 4.697593665922202e-43
         @test SynchrotronKernel.F( 1.e6) == 0.0
+
+        @test ℱ(1.0) == SynchrotronKernel.F(1.0)
     end
     
     @testset "G" begin
         @test SynchrotronKernel.G(1.0) ≈ 0.4944750621042115
+
+        @test 𝒢(1.0) == SynchrotronKernel.G(1.0)
     end
 
     @testset "Synchrotron Kernel" begin
