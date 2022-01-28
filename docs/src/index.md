@@ -52,6 +52,10 @@ save("kernels.png", fig); nothing # hide
 
 ![kernels](kernels.png)
 
+# Simple interface
+
+If you simply need to calculate the synchrotron kernel and the polarisation components you can use the following functions
+
 ## Synchrotron Kernel
 
 ```@docs
@@ -64,10 +68,25 @@ synchrotron_kernel
 synchrotron_polarisation
 ```
 
-## Synchrotron Functions
+# Synchrotron Functions
+
+If you need to access the individual synchrotron functions you can use the direct interface.
+
+## First Function
+
+
+```@docs
+ℱ
+```
 
 ```@docs
 SynchrotronKernel.F
+```
+
+## Second Function
+
+```@docs
+𝒢
 ```
 
 ```@docs
