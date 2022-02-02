@@ -29,7 +29,7 @@ fs    = 25
 scale = 550
 fig   = Figure(resolution = (2.1*scale, scale), fontsize=fs)
 
-ax_l = Axis(fig[1, 1], xlabel="x", ylabel="F(x)")
+ax_l = Axis(fig[1, 1], xlabel="x", ylabel="K(x)")
 xlims!(ax_l, (0.0,10.0))
 ylims!(ax_l, (0.0,1.0))
 lines!(ax_l, x, F, label=L"K", color="black")
@@ -38,7 +38,7 @@ lines!(ax_l, x, sk_par, label=L"K_{\parallel}", color="black", linestyle=:dot)
 
 axislegend(framevisible=false)
 
-ax_r = Axis(fig[1, 2], xlabel = "x", ylabel = "F(x)", 
+ax_r = Axis(fig[1, 2], xlabel = "x", ylabel = "K(x)", 
             xscale=log10, yscale=log10)
 xlims!(ax_r, (1.e-10,100))
 ylims!(ax_r, (1.e-6,10.0))
