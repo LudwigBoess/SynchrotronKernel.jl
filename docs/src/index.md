@@ -18,12 +18,11 @@ using CairoMakie
 Nbins = 1_000
 x = 10.0 .^ (LinRange(-10, 2, Nbins))
 
-F = synchrotron_kernel.(x)
-
+F      = Vector{Float64}(undef, Nbins)
 sk_ort = Vector{Float64}(undef, Nbins)
 sk_par = Vector{Float64}(undef, Nbins)
 for i = 1:Nbins 
-    sk_ort[i], sk_par[i] = synchrotron_polarisation(x[i])
+    F[i], sk_ort[i], sk_par[i] = synchrotron_kernel(x[i])
 end
 
 fs    = 25
@@ -60,6 +59,12 @@ If you simply need to calculate the synchrotron kernel and the polarisation comp
 
 ```@docs
 synchrotron_kernel
+```
+
+## Intensity
+
+```@docs
+synchrotron_intensity
 ```
 
 ## Polarisation

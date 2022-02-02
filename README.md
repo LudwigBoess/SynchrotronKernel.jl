@@ -10,9 +10,27 @@ This package computes the synchrotron kernel for a frequency ratio `x = ν/ν0` 
 ```julia
 using SynchrotronKernel
 
-# kernel value
-F = synchrotron_kernel(x)
+"""
+    General usage
+"""
+# kernel value and polarisation components
+K, K_ort, K_par = synchrotron_kernel(x)
+
+# only kernel value
+K = synchrotron_intensity(x)
+# or
+K = ℱ(x)
 
 # polarisations
-F_ort, F_par = synchrotron_polarisation(x)
+K_ort, K_par = synchrotron_polarisation(x)
+
+"""
+    Synchrotron Functions
+"""
+
+# first synchrotron function
+K = ℱ(x)
+
+# second synchrotron function
+K = 𝒢(x)
 ```
