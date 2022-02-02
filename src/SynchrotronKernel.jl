@@ -10,6 +10,7 @@ module SynchrotronKernel
     include("G.jl")
 
     export synchrotron_kernel,
+           synchrotron_intensity,
            synchrotron_polarisation,
            ℱ, 𝒢
 
@@ -17,25 +18,58 @@ module SynchrotronKernel
     """
         synchrotron_kernel(x::Real)
     
-    Computes the first synchrotron function at a given frequency ratio ``x = \\frac{\\nu}{\\nu_0}``.
+    Computes the first synchrotron function and the polarisation components at a given frequency ratio ``x = \\frac{\\nu}{\\nu_0}``.
+    Returns a tuple `(K_tot, K_ort, K_par)`.
     
-    ``F(x) = x \\int_x^\\infty K_{\\frac{5}{3}}(t) dt``
-    
-    Wrapper for [`F`](@ref).
-    """
-    synchrotron_kernel(x::Real) = F(x)
+    ```julia
+    K_tot = F(x)
+    K_ort = 0.5 * (F(x) + G(x))
+    K_par = 0.5 * (F(x) - G(x))
+    ```
 
+    ## Synchrotron Functions
+    ``F(x) = x \\int_x^\\infty K_{\\frac{5}{3}}(t) dt``
+    ``G(x) = x K_{\\frac{2}{3}}(x)``
+    
+    """
+    function synchrotron_kernel(x::Real) 
+        # first synchrotron function
+        K  = F(x)
+        # second synchrotron function
+        pK = G(x)
+
+        # orthogonal and parallel polarisation components
+        K_ort = 0.5 * (K + pK)
+        K_par = 0.5 * (K - pK)
+
+        return K, K_ort, K_par
+    end
+
+
+    """
+        synchrotron_intensity(x::Real)
+    
+    Computes the total synchrotron kernel, without polarisation components.
+    Wrapper for [`F`](@ref).
+
+    ``F(x) = x \\int_x^\\infty K_{\\frac{5}{3}}(t) dt``
+    """
+    synchrotron_intensity(x::Real) = F(x)
 
     """
         synchrotron_polarisation(x::Real)
 
     Computes the second synchrotron function at a given frequency ratio ``x = \\frac{\\nu}{\\nu_0}``.
-    Returns a tuple of `(sk_ort, sk_par)`.
+    Returns a tuple of `(K_ort, K_par)`.
 
     ```julia
-    sk_ort = 0.5 * (F(x) + G(x))
-    sk_par = 0.5 * (F(x) - G(x))
+    K_ort = 0.5 * (F(x) + G(x))
+    K_par = 0.5 * (F(x) - G(x))
     ```
+
+    ## Synchrotron Functions
+    ``F(x) = x \\int_x^\\infty K_{\\frac{5}{3}}(t) dt``
+    ``G(x) = x K_{\\frac{2}{3}}(x)``
     """
     function synchrotron_polarisation(x::Real)
         
@@ -44,10 +78,11 @@ module SynchrotronKernel
         # second synchrotron function
         pK = G(x)
 
-        sk_ort = 0.5 * (K + pK)
-        sk_par = 0.5 * (K - pK)
+        K_ort = 0.5 * (K + pK)
+        K_par = 0.5 * (K - pK)
 
-        return sk_ort, sk_par
+        # orthogonal and parallel polarisation components
+        return K_ort, K_par
     end
 
 end # module
