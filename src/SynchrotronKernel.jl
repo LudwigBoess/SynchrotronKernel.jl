@@ -29,6 +29,7 @@ module SynchrotronKernel
 
     ## Synchrotron Functions
     ``F(x) = x \\int_x^\\infty K_{\\frac{5}{3}}(t) dt``
+
     ``G(x) = x K_{\\frac{2}{3}}(x)``
     
     """
@@ -69,6 +70,7 @@ module SynchrotronKernel
 
     ## Synchrotron Functions
     ``F(x) = x \\int_x^\\infty K_{\\frac{5}{3}}(t) dt``
+    
     ``G(x) = x K_{\\frac{2}{3}}(x)``
     """
     function synchrotron_polarisation(x::Real)
