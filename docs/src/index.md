@@ -32,9 +32,9 @@ fig   = Figure(resolution = (2.1*scale, scale), fontsize=fs)
 ax_l = Axis(fig[1, 1], xlabel="x", ylabel="F(x)")
 xlims!(ax_l, (0.0,10.0))
 ylims!(ax_l, (0.0,1.0))
-lines!(ax_l, x, F, label=L"F", color="black")
-lines!(ax_l, x, sk_ort, label=L"F_{\perp}", color="black", linestyle=:dash)
-lines!(ax_l, x, sk_par, label=L"F_{\parallel}", color="black", linestyle=:dot)
+lines!(ax_l, x, F, label=L"K", color="black")
+lines!(ax_l, x, sk_ort, label=L"K_{\perp}", color="black", linestyle=:dash)
+lines!(ax_l, x, sk_par, label=L"K_{\parallel}", color="black", linestyle=:dot)
 
 axislegend(framevisible=false)
 
