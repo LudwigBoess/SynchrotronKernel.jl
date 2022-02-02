@@ -18,12 +18,11 @@ using CairoMakie
 Nbins = 1_000
 x = 10.0 .^ (LinRange(-10, 2, Nbins))
 
-F = synchrotron_kernel.(x)
-
+F      = Vector{Float64}(undef, Nbins)
 sk_ort = Vector{Float64}(undef, Nbins)
 sk_par = Vector{Float64}(undef, Nbins)
 for i = 1:Nbins 
-    sk_ort[i], sk_par[i] = synchrotron_polarisation(x[i])
+    F[i], sk_ort[i], sk_par[i] = synchrotron_kernel(x[i])
 end
 
 fs    = 25
@@ -33,9 +32,9 @@ fig   = Figure(resolution = (2.1*scale, scale), fontsize=fs)
 ax_l = Axis(fig[1, 1], xlabel="x", ylabel="F(x)")
 xlims!(ax_l, (0.0,10.0))
 ylims!(ax_l, (0.0,1.0))
-lines!(ax_l, x, F, label=L"F", color="black")
-lines!(ax_l, x, sk_ort, label=L"F_{\perp}", color="black", linestyle=:dash)
-lines!(ax_l, x, sk_par, label=L"F_{\parallel}", color="black", linestyle=:dot)
+lines!(ax_l, x, F, label=L"K", color="black")
+lines!(ax_l, x, sk_ort, label=L"K_{\perp}", color="black", linestyle=:dash)
+lines!(ax_l, x, sk_par, label=L"K_{\parallel}", color="black", linestyle=:dot)
 
 axislegend(framevisible=false)
 
@@ -60,6 +59,12 @@ If you simply need to calculate the synchrotron kernel and the polarisation comp
 
 ```@docs
 synchrotron_kernel
+```
+
+## Intensity
+
+```@docs
+synchrotron_intensity
 ```
 
 ## Polarisation

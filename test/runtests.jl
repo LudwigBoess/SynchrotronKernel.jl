@@ -22,7 +22,16 @@ using SynchrotronKernel, Test
     end
 
     @testset "Synchrotron Kernel" begin
-        @test synchrotron_kernel(1.0) == SynchrotronKernel.F(1.0)
+        K_tot, K_ort, K_par = synchrotron_kernel(1.0)
+
+        @test K_tot == SynchrotronKernel.F(1.0)
+        @test K_ort ≈ 0.5729489387297884
+        @test K_par ≈ 0.07847387662557684
+        @test K_tot == K_ort + K_par
+    end
+
+    @testset "Intensity" begin
+        @test synchrotron_intensity(1.0) == SynchrotronKernel.F(1.0)
     end
 
     @testset "Polarisation" begin
