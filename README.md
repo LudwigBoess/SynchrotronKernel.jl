@@ -6,6 +6,7 @@
 
 This package computes the synchrotron kernel for a frequency ratio `x = ν/ν0` and its polarisation components.
 
+It is based on [pynchrotron](https://github.com/grburgess/pynchrotron) by J. Michael Burgess as used in [Burgess et al (2019)](https://www.nature.com/articles/s41550-019-0911-z?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+natastron%2Frss%2Fcurrent+%28Nature+Astronomy%29&utm_content=Google+Feedfetcher) and is a re-implementation of the [GSL](https://www.gnu.org/software/libc/) synchrotron functions.
 
 ```julia
 using SynchrotronKernel
