@@ -87,4 +87,30 @@ module SynchrotronKernel
         return K_ort, K_par
     end
 
+
+    using SnoopPrecompile    # this is a small dependency
+
+    @precompile_setup begin
+        # Putting some things in `setup` can reduce the size of the
+        # precompile file and potentially make loading faster.
+
+        @precompile_all_calls begin
+            # all calls in this block will be precompiled, regardless of whether
+            # they belong to your package or not (on Julia 1.8 and higher)
+
+            for f ∈ [1.e-8, 1.0, 3.5, 4.5, 10.0, 50.0, 100.0, 1.e6]
+                ℱ(f)
+            end
+
+            𝒢(1.0)
+
+            synchrotron_kernel(1.0)
+            synchrotron_intensity(1.0)
+            synchrotron_polarisation(1.0)
+            
+        end
+    end
+
+
+
 end # module
