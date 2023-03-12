@@ -5,11 +5,11 @@
 const GSL_SQRT_DBL_EPSILON = 1.4901161193847656e-08
 const GSL_LOG_DBL_MIN = -7.0839641853226408e02
 
-const synch_c0 = π / sqrt(3.0)
+const synch_c0 = π / √(3)
 
 const c01 = 0.2257913526447274323630976
-const cond1 = 2 * sqrt(2.0) * GSL_SQRT_DBL_EPSILON
-const cond3 = -8.0 * GSL_LOG_DBL_MIN / 7.0
+const cond1 = 2 * √(2) * GSL_SQRT_DBL_EPSILON
+const cond3 = -8 * GSL_LOG_DBL_MIN / 7
 
 const synchrotron1_data = [ 30.364682982501076273,
                             17.079395277408394574,
@@ -69,7 +69,7 @@ const synchrotron2_data = [  0.4490721623532660844,
 
 @inline @fastmath function cheb_eval(coeff::Vector{<:Real}, order::Integer, x::Real)
 
-    d = 0.0
+    d  = 0.0
     dd = 0.0
 
     x2 = 2x
@@ -98,7 +98,7 @@ Computes the first synchrotron function at a given frequency ratio ``x = \\frac{
 
     if x < cond1
 
-        z = x^(1/3)
+        z = ∛(x)
         cf = 1 - 8.43812762813205e-01 * z * z
         return 2.14952824153447863671 * z * cf
 
@@ -115,11 +115,11 @@ Computes the first synchrotron function at a given frequency ratio ``x = \\frac{
 
     elseif x < cond3
 
-        t = (12.0 - x) / (x + 4.0)
+        t = (12 - x) / (x + 4)
 
         result_c1 = cheb_eval( synchrotron1a_data, 23, t )
 
-        return sqrt(x) * result_c1 * exp(c01 - x)
+        return √(x) * result_c1 * exp(c01 - x)
 
     else
         return 0.0
