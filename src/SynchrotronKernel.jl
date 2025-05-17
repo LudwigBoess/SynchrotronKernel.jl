@@ -18,7 +18,7 @@ module SynchrotronKernel
     """
         synchrotron_kernel(x::Real)
 
-    Computes the first synchrotron function and the polarisation components at a given frequency ratio ``x = \\frac{ν}{ν_0}``.
+    Computes the first synchrotron function and the polarisation components at a given frequency ratio ``x = ν/ν_0``.
     Returns a tuple `(K_tot, K_ort, K_par)`.
 
     ```julia
@@ -60,7 +60,7 @@ module SynchrotronKernel
     """
         synchrotron_polarisation(x::Real)
 
-    Computes the second synchrotron function at a given frequency ratio ``x = \\frac{ν}{ν_0}``.
+    Computes the second synchrotron function at a given frequency ratio ``x = ν/ν_0``.
     Returns a tuple of `(K_ort, K_par)`.
 
     ```julia

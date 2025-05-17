@@ -3,7 +3,7 @@ using SpecialFunctions
 """
     G(x::Real)
 
-Computes the second synchrotron function at a given frequency ratio ``x = \\frac{ν}{ν_0}``.
+Computes the second synchrotron function at a given frequency ratio ``x = ν/ν_0``.
 
 ``G(x) = x K_{\\frac{2}{3}}(x)``
 """
@@ -13,7 +13,7 @@ G(x::Real) = x * besselk(2/3, x)
 """
     𝒢(x::Real)
 
-Computes the second synchrotron function at a given frequency ratio ``x = \\frac{ν}{ν_0}``.
+Computes the second synchrotron function at a given frequency ratio ``x = ν/ν_0``.
 
 ``G(x) = x K_{\\frac{2}{3}}(x)``
 

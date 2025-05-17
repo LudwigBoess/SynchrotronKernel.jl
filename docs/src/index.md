@@ -7,7 +7,7 @@ DocTestSetup = quote
 end
 ```
 
-This package computes the synchrotron kernel for a frequency ratio ``x = \frac{ν}{ν_0}`` and its polarisation components.
+This package computes the synchrotron kernel for a frequency ratio ``x = ν/ν_0`` and its polarisation components.
 
 
 ```@eval

@@ -89,7 +89,7 @@ end
 """
     F(x::Real)
 
-Computes the first synchrotron function at a given frequency ratio ``x = \\frac{ν}{ν_0}``.
+Computes the first synchrotron function at a given frequency ratio ``x = ν/ν_0``.
 
 ``F(x) = x \\int_x^∞ K_{\\frac{5}{3}}(t) dt``
 
@@ -130,7 +130,7 @@ end
 """
     ℱ(x::Real)
 
-Computes the first synchrotron function at a given frequency ratio ``x = \\frac{ν}{ν_0}``.
+Computes the first synchrotron function at a given frequency ratio ``x = ν/ν_0``.
 
 ``F(x) = x \\int_x^∞ K_{\\frac{5}{3}}(t) dt``
 
