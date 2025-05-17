@@ -18,7 +18,7 @@ module SynchrotronKernel
     """
         synchrotron_kernel(x::Real)
 
-    Computes the first synchrotron function and the polarisation components at a given frequency ratio ``x = \\frac{\\nu}{\\nu_0}``.
+    Computes the first synchrotron function and the polarisation components at a given frequency ratio ``x = \\frac{ν}{ν_0}``.
     Returns a tuple `(K_tot, K_ort, K_par)`.
 
     ```julia
@@ -28,7 +28,7 @@ module SynchrotronKernel
     ```
 
     ## Synchrotron Functions
-    ``F(x) = x \\int_x^\\infty K_{\\frac{5}{3}}(t) dt``
+    ``F(x) = x \\int_x^∞ K_{\\frac{5}{3}}(t) dt``
 
     ``G(x) = x K_{\\frac{2}{3}}(x)``
 
@@ -53,14 +53,14 @@ module SynchrotronKernel
     Computes the total synchrotron kernel, without polarisation components.
     Wrapper for [`F`](@ref).
 
-    ``F(x) = x \\int_x^\\infty K_{\\frac{5}{3}}(t) dt``
+    ``F(x) = x \\int_x^∞ K_{\\frac{5}{3}}(t) dt``
     """
     synchrotron_intensity(x::Real) = F(x)
 
     """
         synchrotron_polarisation(x::Real)
 
-    Computes the second synchrotron function at a given frequency ratio ``x = \\frac{\\nu}{\\nu_0}``.
+    Computes the second synchrotron function at a given frequency ratio ``x = \\frac{ν}{ν_0}``.
     Returns a tuple of `(K_ort, K_par)`.
 
     ```julia
@@ -69,7 +69,7 @@ module SynchrotronKernel
     ```
 
     ## Synchrotron Functions
-    ``F(x) = x \\int_x^\\infty K_{\\frac{5}{3}}(t) dt``
+    ``F(x) = x \\int_x^∞ K_{\\frac{5}{3}}(t) dt``
 
     ``G(x) = x K_{\\frac{2}{3}}(x)``
     """
