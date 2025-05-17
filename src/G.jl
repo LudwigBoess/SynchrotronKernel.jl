@@ -19,4 +19,4 @@ Computes the second synchrotron function at a given frequency ratio ``x = \\frac
 
 Wrapper for [`G`](@ref).
 """
-𝒢(x::Real) = G(x)
+const 𝒢 = G

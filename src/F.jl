@@ -136,4 +136,4 @@ Computes the first synchrotron function at a given frequency ratio ``x = \\frac{
 
 Wrapper for [`F`](@ref).
 """
-ℱ(x::Real) = F(x)
+const ℱ = F
