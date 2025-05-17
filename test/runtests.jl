@@ -14,7 +14,7 @@ using SynchrotronKernel, Test
 
         @test ℱ(1.0) == SynchrotronKernel.F(1.0)
     end
-    
+
     @testset "G" begin
         @test SynchrotronKernel.G(1.0) ≈ 0.4944750621042115
 

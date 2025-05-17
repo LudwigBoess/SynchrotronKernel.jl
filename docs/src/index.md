@@ -21,7 +21,7 @@ x = 10.0 .^ (LinRange(-10, 2, Nbins))
 F      = Vector{Float64}(undef, Nbins)
 sk_ort = Vector{Float64}(undef, Nbins)
 sk_par = Vector{Float64}(undef, Nbins)
-for i = 1:Nbins 
+for i = 1:Nbins
     F[i], sk_ort[i], sk_par[i] = synchrotron_kernel(x[i])
 end
 
@@ -38,7 +38,7 @@ lines!(ax_l, x, sk_par, label=L"K_{\parallel}", color="black", linestyle=:dot)
 
 axislegend(framevisible=false)
 
-ax_r = Axis(fig[1, 2], xlabel = "x", ylabel = "K(x)", 
+ax_r = Axis(fig[1, 2], xlabel = "x", ylabel = "K(x)",
             xscale=log10, yscale=log10)
 xlims!(ax_r, (1.e-10,100))
 ylims!(ax_r, (1.e-6,10.0))
