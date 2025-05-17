@@ -44,7 +44,9 @@ xlims!(ax_r, (1.e-10,100))
 ylims!(ax_r, (1.e-6,10.0))
 lines!(ax_r, x, F, label=L"F", color="black")
 lines!(ax_r, x, sk_ort, color="black", linestyle=:dash)
-lines!(ax_r, x, sk_par, label=L"F_{\para}", color="black", linestyle=:dot)
+lines!(ax_r, x, sk_par, label=L"F_{\parallel}", color="black", linestyle=:dot)
+
+axislegend(framevisible=false, position=:lt)
 
 save("kernels.png", fig); nothing # hide
 ```
