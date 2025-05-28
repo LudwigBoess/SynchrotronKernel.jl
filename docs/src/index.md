@@ -46,8 +46,6 @@ lines!(ax_r, x, F, label=L"F", color="black")
 lines!(ax_r, x, sk_ort, color="black", linestyle=:dash)
 lines!(ax_r, x, sk_par, label=L"F_{\parallel}", color="black", linestyle=:dot)
 
-axislegend(framevisible=false, position=:lt)
-
 save("kernels.png", fig); nothing # hide
 ```
 
