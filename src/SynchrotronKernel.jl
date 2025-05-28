@@ -14,13 +14,13 @@ module SynchrotronKernel
            synchrotron_polarisation,
            ℱ, 𝒢
 
-    
+
     """
         synchrotron_kernel(x::Real)
-    
-    Computes the first synchrotron function and the polarisation components at a given frequency ratio ``x = \\frac{\\nu}{\\nu_0}``.
+
+    Computes the first synchrotron function and the polarisation components at a given frequency ratio ``x = ν/ν_0``.
     Returns a tuple `(K_tot, K_ort, K_par)`.
-    
+
     ```julia
     K_tot = F(x)
     K_ort = 0.5 * (F(x) + G(x))
@@ -28,12 +28,12 @@ module SynchrotronKernel
     ```
 
     ## Synchrotron Functions
-    ``F(x) = x \\int_x^\\infty K_{\\frac{5}{3}}(t) dt``
+    ``F(x) = x \\int_x^∞ K_{\\frac{5}{3}}(t) dt``
 
     ``G(x) = x K_{\\frac{2}{3}}(x)``
-    
+
     """
-    function synchrotron_kernel(x::Real) 
+    function synchrotron_kernel(x::Real)
         # first synchrotron function
         K  = F(x)
         # second synchrotron function
@@ -49,18 +49,18 @@ module SynchrotronKernel
 
     """
         synchrotron_intensity(x::Real)
-    
+
     Computes the total synchrotron kernel, without polarisation components.
     Wrapper for [`F`](@ref).
 
-    ``F(x) = x \\int_x^\\infty K_{\\frac{5}{3}}(t) dt``
+    ``F(x) = x \\int_x^∞ K_{\\frac{5}{3}}(t) dt``
     """
     synchrotron_intensity(x::Real) = F(x)
 
     """
         synchrotron_polarisation(x::Real)
 
-    Computes the second synchrotron function at a given frequency ratio ``x = \\frac{\\nu}{\\nu_0}``.
+    Computes the second synchrotron function at a given frequency ratio ``x = ν/ν_0``.
     Returns a tuple of `(K_ort, K_par)`.
 
     ```julia
@@ -69,12 +69,12 @@ module SynchrotronKernel
     ```
 
     ## Synchrotron Functions
-    ``F(x) = x \\int_x^\\infty K_{\\frac{5}{3}}(t) dt``
-    
+    ``F(x) = x \\int_x^∞ K_{\\frac{5}{3}}(t) dt``
+
     ``G(x) = x K_{\\frac{2}{3}}(x)``
     """
     function synchrotron_polarisation(x::Real)
-        
+
         # first synchrotron function
         K  = F(x)
         # second synchrotron function
@@ -107,10 +107,7 @@ module SynchrotronKernel
             synchrotron_kernel(1.0)
             synchrotron_intensity(1.0)
             synchrotron_polarisation(1.0)
-            
+
         end
     end
-
-
-
 end # module

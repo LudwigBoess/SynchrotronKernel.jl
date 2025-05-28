@@ -89,9 +89,9 @@ end
 """
     F(x::Real)
 
-Computes the first synchrotron function at a given frequency ratio ``x = \\frac{\\nu}{\\nu_0}``.
+Computes the first synchrotron function at a given frequency ratio ``x = ν/ν_0``.
 
-``F(x) = x \\int_x^\\infty K_{\\frac{5}{3}}(t) dt``
+``F(x) = x \\int_x^∞ K_{\\frac{5}{3}}(t) dt``
 
 """
 @inline function F(x::Real)
@@ -130,10 +130,10 @@ end
 """
     ℱ(x::Real)
 
-Computes the first synchrotron function at a given frequency ratio ``x = \\frac{\\nu}{\\nu_0}``.
+Computes the first synchrotron function at a given frequency ratio ``x = ν/ν_0``.
 
-``F(x) = x \\int_x^\\infty K_{\\frac{5}{3}}(t) dt``
+``F(x) = x \\int_x^∞ K_{\\frac{5}{3}}(t) dt``
 
 Wrapper for [`F`](@ref).
 """
-ℱ(x::Real) = F(x)
+const ℱ = F

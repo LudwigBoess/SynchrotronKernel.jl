@@ -1,4 +1,4 @@
-using SynchrotronKernel, Test
+using SynchrotronKernel, Test, Aqua
 
 @testset "Synchrotron Kernel" begin
 
@@ -14,7 +14,7 @@ using SynchrotronKernel, Test
 
         @test ℱ(1.0) == SynchrotronKernel.F(1.0)
     end
-    
+
     @testset "G" begin
         @test SynchrotronKernel.G(1.0) ≈ 0.4944750621042115
 
@@ -41,6 +41,11 @@ using SynchrotronKernel, Test
         @test sk_ort ≈ 0.5729489387297884
         @test sk_par ≈ 0.07847387662557684
         @test K == sk_ort + sk_par
+    end
+
+
+    @testset "Aqua.jl (code quality)" begin
+        Aqua.test_all(SynchrotronKernel)
     end
 
 end
