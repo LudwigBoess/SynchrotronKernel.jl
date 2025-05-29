@@ -1,7 +1,7 @@
 name = "SynchrotronKernel"
 uuid = "7c311715-997f-43ba-a0ee-db1ccfe8d7f2"
 authors = ["LudwigBoess <lboess@usm.lmu.de>"]
-version = "0.2.1"
+version = "0.2.2"
 
 [deps]
 SnoopPrecompile = "66db9d55-30c0-4569-8b51-7e840670fc0c"
